@@ -8,7 +8,7 @@ Fetch COVID data from the NYT GitHub repository.
 
 from __future__ import annotations
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 required = ['pandas', 'duckdb']
 
 import pathlib
