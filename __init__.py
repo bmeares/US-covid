@@ -113,6 +113,7 @@ def _get_df(
         WHERE fips IN (""" + fips_where + """)
     """
     if begin is not None:
+        begin -= datetime.timedelta(days=2)
         query += f"\n    AND CAST(date AS DATE) >= CAST('{begin}' AS DATE)"
     if end is not None:
         query += f"\n    AND CAST(date AS DATE) <= CAST('{end}' AS DATE)"
