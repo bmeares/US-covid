@@ -8,7 +8,7 @@ Fetch COVID data from the NYT GitHub repository.
 
 from __future__ import annotations
 
-__version__ = '0.0.9'
+__version__ = '0.1.0'
 required = ['pandas', 'duckdb']
 
 import pathlib
@@ -73,7 +73,7 @@ def fetch(
     wget(RECENT_URL, recent_filepath, debug=debug)
     recent_df = _get_df(recent_filepath, fips, begin, end)
     st = pipe.get_sync_time(debug=debug)
-    if st is not None and min(recent_df['date']) <= st:
+    if st is not None and len(recent_df) > 0 and min(recent_df['date']) <= st:
         return recent_df
 
     wget(ALL_URL, all_filepath, debug=debug)
